@@ -1,0 +1,21 @@
+html{
+    background-color: #0C0910;
+    color: white;
+}
+header{
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    cursor: pointer;
+}
+section{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
