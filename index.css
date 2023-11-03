@@ -19,3 +19,8 @@ section{
     justify-content: center;
     align-items: center;
 }
+.all-tasks{
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    margin-bottom: 5%;
+}
