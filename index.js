@@ -22,17 +22,26 @@ addBtn.addEventListener("click", function () {
     if (data === "") {
         alert("El campo de entrada está vacío. Por favor, ingresa algo.");
     } else {
-        localStorage.setItem("miDato", data);
-        alert("Información guardada en localStorage.");
-
-        inputElement.value = "";
-
-        let dato = localStorage.getItem("miDato");
-        alert("Datos:" + dato);
-
-        addTask(dato);
+        createTodo(data);
     }
 });
+
+function createTodo(data){
+    
+    localStorage.setItem("miDato", data);
+    alert("Información guardada en localStorage.");
+
+    inputElement.value = "";
+
+    let dato = localStorage.getItem("miDato");
+    alert("Datos:" + dato);
+
+    addTask(dato);
+}
+
+function showTask(){
+
+}
 
 function addTask(info){
 
@@ -42,7 +51,7 @@ function addTask(info){
     
     let checkbox = document.createElement("input")
     checkbox.type = "checkbox";
-    var nameCheckBox = "checkbox" + identificador;
+    let nameCheckBox = "checkbox" + identificador;
     checkbox.id = nameCheckBox;
 
     // alert("Id check: " + nameCheckBox);
@@ -54,8 +63,11 @@ function addTask(info){
 
     let btnDeleteTask = document.createElement("button");
     btnDeleteTask.textContent = "Borrar";
-    var nameBtnDeleteTask = "boton"+identificador;
+    let nameBtnDeleteTask = "boton"+identificador;
     btnDeleteTask.id = nameBtnDeleteTask;
+    btnDeleteTask.disabled = true;
+
+    generateId(divIndividual, checkbox, parr, btnDeleteTask)
 
     //Estilos
     divIndividual.style.backgroundColor = "white";
@@ -84,7 +96,22 @@ function addTask(info){
 };
 
 clearBtn.addEventListener("click", function (){
-    localStorage.clear();
-    alert("Almacenamiento limpio");
+    clearAll();
 });
 
+function taskComplete(){
+
+}
+
+function deleteTask(){
+
+}
+
+function countNumTask(){
+
+}
+
+function clearAll(){
+    localStorage.clear();
+    alert("Almacenamiento limpio");
+}
