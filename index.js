@@ -85,8 +85,10 @@ function addTask(info){
 
     identificador++;
 
-    checkbox.addEventListener("change", function() {
-        if (nameCheckBox.checked){
+    let checkeo = document.getElementById(nameCheckBox);
+
+    checkeo.addEventListener("change", function() {
+        if (checkeo.checked && checkeo  ){
             btnDeleteTask.disabled = false;
         }
         else{
