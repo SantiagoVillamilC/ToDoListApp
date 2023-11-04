@@ -35,13 +35,17 @@ addBtn.addEventListener("click", function () {
 });
 
 function addTask(info){
+
+    let divIndividual = document.createElement("div");
+    divIndividual.id = "individualClass";
+
     
     let checkbox = document.createElement("input")
     checkbox.type = "checkbox";
     var nameCheckBox = "checkbox" + identificador;
     checkbox.id = nameCheckBox;
 
-    alert("Id check: " + nameCheckBox);
+    // alert("Id check: " + nameCheckBox);
 
     let parr = document.createElement("p");
     let text = document.createTextNode(info);
@@ -54,15 +58,16 @@ function addTask(info){
     btnDeleteTask.id = nameBtnDeleteTask;
 
     //Estilos
-    divTask.style.backgroundColor = "white";
-    divTask.style.borderRadius = "25px";
-    divTask.style.color = "black";
-    divTask.style.width = "50%";
-    divTask.style.height = "auto";
+    divIndividual.style.backgroundColor = "white";
+    divIndividual.style.borderRadius = "25px";
+    divIndividual.style.color = "black";
+    divIndividual.style.height = "auto";
 
-    divTask.appendChild(checkbox);
-    divTask.appendChild(parr);
-    divTask.appendChild(btnDeleteTask);
+    divTask.appendChild(divIndividual);
+
+    divIndividual.appendChild(checkbox);
+    divIndividual.appendChild(parr);
+    divIndividual.appendChild(btnDeleteTask);
 
     alert("Se imprime" + info);
 

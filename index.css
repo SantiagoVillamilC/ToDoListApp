@@ -18,9 +18,17 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 .all-tasks{
+    width: 50%;
+    height: auto;
+}
+
+#individualClass{
     display: grid;
     grid-template-columns: 15% 70% 15%;
-    margin-bottom: 5%;
+    margin-bottom: 1%;
+    width: 100%;
+    height: auto;
 }
