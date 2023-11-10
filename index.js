@@ -3,8 +3,6 @@ let addBtn = document.querySelector(".add-btn");
 let clearBtn = document.querySelector(".clear-all-btn");
 let divTask = document.querySelector(".all-tasks");
 
-var identificador = 0;
-
 //validateStorage();
 
 function validateStorage(){
@@ -15,103 +13,110 @@ function validateStorage(){
       }
 };
 
+actualizarContadorDivs();
+
+function crearNuevoDiv(texto) {
+    
+    const nuevoDiv = document.createElement("div");
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+
+    const parrafo = document.createElement("p");
+    const text = document.createTextNode(texto);
+    parrafo.appendChild(text);
+
+    const boton = document.createElement("button");
+    boton.textContent = "Borrar";
+    boton.disabled = true;
+
+    nuevoDiv.appendChild(checkbox);
+    nuevoDiv.appendChild(parrafo);
+    nuevoDiv.appendChild(boton);
+
+    divTask.appendChild(nuevoDiv);
+
+    //Estilos
+    nuevoDiv.style.backgroundColor = "white";
+    nuevoDiv.style.borderRadius = "25px";
+    nuevoDiv.style.color = "black";
+    nuevoDiv.style.height = "auto";
+    nuevoDiv.style.display = "grid";
+    nuevoDiv.style.gridTemplateColumns = "15% 70% 15%";
+
+    // Guardar contenido del parrafo en el LocalStorage
+    checkbox.addEventListener("change", function () {
+        if (checkbox.checked) {
+            parrafo.style.textDecoration = "line-through";
+            boton.disabled = false;
+        } else {
+            parrafo.style.textDecoration = "none";
+            boton.disabled = true;
+        }
+    });
+
+    boton.addEventListener("click", function () {
+
+        nuevoDiv.remove();
+
+        // Borra el texto del arreglo y actualiza el LocalStorage
+        const textos = JSON.parse(localStorage.getItem("textos")) || [];
+        const index = textos.indexOf(texto);
+        if (index !== -1) {
+            textos.splice(index, 1);
+            localStorage.setItem("textos", JSON.stringify(textos));
+        }
+
+        actualizarContadorDivs();
+
+    });
+
+    actualizarContadorDivs();
+}
+
 addBtn.addEventListener("click", function () {
 
-    const data = inputElement.value.trim();
+    const texto = inputElement.value.trim();
 
-    if (data === "") {
+    if (texto === "") {
         alert("El campo de entrada está vacío. Por favor, ingresa algo.");
     } else {
-        createTodo(data);
+        // Obtener el arreglo de textos del LocalStorage
+        const textos = JSON.parse(localStorage.getItem("textos")) || [];
+        // Agrega el nuevo texto al arreglo
+        textos.push(texto);
+        // Guarda el arreglo en el LocalStorage
+        localStorage.setItem("textos", JSON.stringify(textos));
+
+        crearNuevoDiv(texto);
+
+        inputElement.value = "";
     }
 });
 
-function createTodo(data){
-    
-    localStorage.setItem("miDato", data);
-    alert("Información guardada en localStorage.");
+// Comprueba si hay textos guardados en el LocalStorage al cargar la pagina
+const textosGuardados = JSON.parse(localStorage.getItem("textos")) || [];
 
-    inputElement.value = "";
+textosGuardados.forEach(function (texto) {
+    // Llama a la función para crear un nuevo div con cada texto guardado
+    crearNuevoDiv(texto);
+});
 
-    let dato = localStorage.getItem("miDato");
-    alert("Datos:" + dato);
+function actualizarContadorDivs() {
+    const contador = document.getElementById("contadorDivs");
+    const divs = divTask.childElementCount;
 
-    addTask(dato);
+    if (divs === 0){
+        contador.textContent = `No tienes tareas :c`;
+    }
+    else{
+        contador.textContent = `Número de Divs: ${divs}`;
+    }
 }
-
-function showTask(){
-
-}
-
-function addTask(info){
-
-    let divIndividual = document.createElement("div");
-    divIndividual.id = "individualClass";
-
-    
-    let checkbox = document.createElement("input")
-    checkbox.type = "checkbox";
-    let nameCheckBox = "checkbox" + identificador;
-    checkbox.id = nameCheckBox;
-
-    // alert("Id check: " + nameCheckBox);
-
-    let parr = document.createElement("p");
-    let text = document.createTextNode(info);
-    parr.appendChild(text);
-    parr.id = "texto"+identificador;
-
-    let btnDeleteTask = document.createElement("button");
-    btnDeleteTask.textContent = "Borrar";
-    let nameBtnDeleteTask = "boton"+identificador;
-    btnDeleteTask.id = nameBtnDeleteTask;
-    btnDeleteTask.disabled = true;
-
-    generateId(divIndividual, checkbox, parr, btnDeleteTask)
-
-    //Estilos
-    divIndividual.style.backgroundColor = "white";
-    divIndividual.style.borderRadius = "25px";
-    divIndividual.style.color = "black";
-    divIndividual.style.height = "auto";
-
-    divTask.appendChild(divIndividual);
-
-    divIndividual.appendChild(checkbox);
-    divIndividual.appendChild(parr);
-    divIndividual.appendChild(btnDeleteTask);
-
-    alert("Se imprime" + info);
-
-    identificador++;
-
-    let checkeo = document.getElementById(nameCheckBox);
-
-    checkeo.addEventListener("change", function() {
-        if (checkeo.checked && checkeo  ){
-            btnDeleteTask.disabled = false;
-        }
-        else{
-            btnDeleteTask.disabled = true;
-        }
-    });
-};
 
 clearBtn.addEventListener("click", function (){
     clearAll();
 });
-
-function taskComplete(){
-
-}
-
-function deleteTask(){
-
-}
-
-function countNumTask(){
-
-}
 
 function clearAll(){
     localStorage.clear();
