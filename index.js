@@ -119,6 +119,17 @@ clearBtn.addEventListener("click", function (){
 });
 
 function clearAll(){
-    localStorage.clear();
-    alert("Almacenamiento limpio");
+
+    let opcion = confirm("¿Estas segur@ de querer borrar todo?")
+    if (opcion === true){
+        localStorage.clear();
+        textosGuardados.lenght = 0;
+        alert("Almacenamiento limpio");
+        while(divTask.firstChild){
+            divTask.removeChild(divTask.firstChild);
+        }
+        actualizarContadorDivs();
+    }else{
+        alert("No borraste tus tareas");
+    }
 }
