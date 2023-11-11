@@ -4,6 +4,7 @@ let clearBtn = document.querySelector(".clear-all-btn");
 let divTask = document.querySelector(".all-tasks");
 
 //validateStorage();
+inputElement.focus();
 
 function validateStorage(){
     if (typeof(Storage) !== 'undefined') {
@@ -43,6 +44,8 @@ function crearNuevoDiv(texto) {
     nuevoDiv.style.height = "auto";
     nuevoDiv.style.display = "grid";
     nuevoDiv.style.gridTemplateColumns = "15% 70% 15%";
+    // nuevoDiv.style.wordBreak = "break word";
+    nuevoDiv.style.width = "100%"
 
     // Guardar contenido del parrafo en el LocalStorage
     checkbox.addEventListener("change", function () {
