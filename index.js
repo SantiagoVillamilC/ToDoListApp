@@ -45,7 +45,8 @@ function crearNuevoDiv(texto) {
     nuevoDiv.style.display = "grid";
     nuevoDiv.style.gridTemplateColumns = "15% 70% 15%";
     // nuevoDiv.style.wordBreak = "break word";
-    nuevoDiv.style.width = "100%"
+    nuevoDiv.style.width = "95%";
+    nuevoDiv.style.marginRight = "5%";
 
     // Guardar contenido del parrafo en el LocalStorage
     checkbox.addEventListener("change", function () {
@@ -95,6 +96,8 @@ addBtn.addEventListener("click", function () {
 
         inputElement.value = "";
     }
+
+    inputElement.focus();
 });
 
 // Comprueba si hay textos guardados en el LocalStorage al cargar la pagina
