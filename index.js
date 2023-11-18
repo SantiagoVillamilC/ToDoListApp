@@ -23,13 +23,24 @@ function crearNuevoDiv(texto) {
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
 
+    checkbox.style.height = "1em";
+    checkbox.style.marginTop = "15%"
+
     const parrafo = document.createElement("p");
     const text = document.createTextNode(texto);
     parrafo.appendChild(text);
 
     const boton = document.createElement("button");
-    boton.textContent = "Borrar";
+    // boton.textContent = "Borrar";
     boton.disabled = true;
+
+    const imgDeleDisabled = document.createElement("img");
+    imgDeleDisabled.src = "assets/basura.png";
+
+    boton.appendChild(imgDeleDisabled);
+
+    const imgDeleActivate = document.createElement("img");
+    imgDeleActivate.src = "assets/basuraAct.png";
 
     nuevoDiv.appendChild(checkbox);
     nuevoDiv.appendChild(parrafo);
@@ -47,15 +58,24 @@ function crearNuevoDiv(texto) {
     // nuevoDiv.style.wordBreak = "break word";
     nuevoDiv.style.width = "95%";
     nuevoDiv.style.marginRight = "5%";
+    nuevoDiv.style.marginTop = "1%";
 
     // Guardar contenido del parrafo en el LocalStorage
     checkbox.addEventListener("change", function () {
         if (checkbox.checked) {
             parrafo.style.textDecoration = "line-through";
             boton.disabled = false;
+
+            if (boton.firstChild == imgDeleDisabled){
+                boton.replaceChild(imgDeleActivate, imgDeleDisabled);
+            }
         } else {
             parrafo.style.textDecoration = "none";
             boton.disabled = true;
+
+            if (boton.firstChild == imgDeleActivate){
+                boton.replaceChild(imgDeleDisabled, imgDeleActivate);
+            }
         }
     });
 
