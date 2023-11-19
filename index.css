@@ -13,6 +13,7 @@ header{
 }
 button{
     cursor: pointer;
+    outline: none;
 }
 section{
     width: 100%;
@@ -21,14 +22,56 @@ section{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    flex-wrap: wrap;
 }
 form{
     margin-bottom: 1.5em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#input-Task{
+    height: 2em;
+    width: 30em;
+    padding: 2%;
+    border-radius: 20px;
+    margin-right: 1%;
+    display: inline;
+    font-size: 1.1em;
+}
+.add-btn{
+    height: 4.5em;
+    width: 4.5em;
+    border-radius: 100%;
+    /* font-size: 1.1em; */
+    padding: 0%;
+    &:hover {
+        transition: all 0.5s ease-in-out;   
+        background-color: red;
+      }
+      &:not(:hover) {
+          transition: all 0.5s ease-in-out;
+          text-shadow: 0 0 10px white;
+          background-color: rgb(0, 220, 195);
+        }
+}
+#text-Button{
+    font-size: 2.5em;
+}
+.container{
+    width: 100%;
 }
 .all-tasks{
-    width: 50%;
+    width: 100%;
     height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
+
+
 
 #individualClass{
     display: grid;
@@ -59,4 +102,21 @@ form{
 
 #title-Space{
     margin-left: 0.5em;
+}
+
+.others{
+    width: 100%;
+    height: auto;
+    margin-top: 2%;
+}
+.container-Info{
+    width: 20em;
+    padding: 0.5%;
+    padding-left: 2%;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: white;
+    border-style: solid;
+    display: flex;
+    justify-content: space-between;
 }

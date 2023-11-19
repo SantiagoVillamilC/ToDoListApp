@@ -34,6 +34,9 @@ function crearNuevoDiv(texto) {
     // boton.textContent = "Borrar";
     boton.disabled = true;
 
+    boton.style.backgroundColor = "transparent";
+    boton.style.outline = "none";
+
     const imgDeleDisabled = document.createElement("img");
     imgDeleDisabled.src = "assets/basura.png";
 
@@ -50,13 +53,13 @@ function crearNuevoDiv(texto) {
 
     //Estilos
     nuevoDiv.style.backgroundColor = "white";
-    nuevoDiv.style.borderRadius = "25px";
+    nuevoDiv.style.borderRadius = "10px";
     nuevoDiv.style.color = "black";
     nuevoDiv.style.height = "auto";
     nuevoDiv.style.display = "grid";
     nuevoDiv.style.gridTemplateColumns = "15% 70% 15%";
     // nuevoDiv.style.wordBreak = "break word";
-    nuevoDiv.style.width = "95%";
+    nuevoDiv.style.width = "30em";
     nuevoDiv.style.marginRight = "5%";
     nuevoDiv.style.marginTop = "1%";
 
@@ -135,8 +138,11 @@ function actualizarContadorDivs() {
     if (divs === 0){
         contador.textContent = `No tienes tareas :c`;
     }
+    else if (divs === 1){
+        contador.textContent = `Unicamente tienes ${divs} tarea, ¡sigue asi!`
+    }
     else{
-        contador.textContent = `Número de Divs: ${divs}`;
+        contador.textContent = `Tienes: ${divs} tareas`;
     }
 }
 
