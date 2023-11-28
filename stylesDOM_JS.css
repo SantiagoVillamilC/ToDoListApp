@@ -1,0 +1,22 @@
+.miDiv{
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    height: auto;
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    width: 30em;
+    margin-right: 5%;
+    margin-top: 1%;
+}
+
+.miCheckbox{
+    height: 45%;
+    margin-top: 15%;
+}
+
+.miBoton{
+    background-color: transparent;
+    outline: none;
+    border-width: 0px;
+}

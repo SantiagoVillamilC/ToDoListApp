@@ -19,12 +19,11 @@ actualizarContadorDivs();
 function crearNuevoDiv(texto) {
     
     const nuevoDiv = document.createElement("div");
+    nuevoDiv.className = "miDiv";
 
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
-
-    checkbox.style.height = "1em";
-    checkbox.style.marginTop = "15%"
+    checkbox.className = "miCheckbox";
 
     const parrafo = document.createElement("p");
     const text = document.createTextNode(texto);
@@ -33,9 +32,7 @@ function crearNuevoDiv(texto) {
     const boton = document.createElement("button");
     // boton.textContent = "Borrar";
     boton.disabled = true;
-
-    boton.style.backgroundColor = "transparent";
-    boton.style.outline = "none";
+    boton.className = "miBoton";
 
     const imgDeleDisabled = document.createElement("img");
     imgDeleDisabled.src = "assets/basura.png";
@@ -50,18 +47,6 @@ function crearNuevoDiv(texto) {
     nuevoDiv.appendChild(boton);
 
     divTask.appendChild(nuevoDiv);
-
-    //Estilos
-    nuevoDiv.style.backgroundColor = "white";
-    nuevoDiv.style.borderRadius = "10px";
-    nuevoDiv.style.color = "black";
-    nuevoDiv.style.height = "auto";
-    nuevoDiv.style.display = "grid";
-    nuevoDiv.style.gridTemplateColumns = "15% 70% 15%";
-    // nuevoDiv.style.wordBreak = "break word";
-    nuevoDiv.style.width = "30em";
-    nuevoDiv.style.marginRight = "5%";
-    nuevoDiv.style.marginTop = "1%";
 
     // Guardar contenido del parrafo en el LocalStorage
     checkbox.addEventListener("change", function () {
