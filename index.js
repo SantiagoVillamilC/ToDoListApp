@@ -28,6 +28,7 @@ function crearNuevoDiv(texto) {
     const parrafo = document.createElement("p");
     const text = document.createTextNode(texto);
     parrafo.appendChild(text);
+    parrafo.className = "miP"
 
     const boton = document.createElement("button");
     // boton.textContent = "Borrar";
@@ -41,6 +42,9 @@ function crearNuevoDiv(texto) {
 
     const imgDeleActivate = document.createElement("img");
     imgDeleActivate.src = "assets/basuraAct.png";
+
+    imgDeleActivate.id = "imgBasuraAct";
+    imgDeleDisabled.id = "imgBasuraDsb";
 
     nuevoDiv.appendChild(checkbox);
     nuevoDiv.appendChild(parrafo);
@@ -120,14 +124,28 @@ function actualizarContadorDivs() {
     const contador = document.getElementById("contadorDivs");
     const divs = divTask.childElementCount;
 
+    contador.innerHTML = '';
+
     if (divs === 0){
-        contador.textContent = `No tienes tareas :c`;
+        contador.textContent = `You don't have any tasks! :D`;
     }
     else if (divs === 1){
-        contador.textContent = `Unicamente tienes ${divs} tarea, ¡sigue asi!`
+        const boldSpan = document.createElement('span');
+        boldSpan.id = "numberCount";
+        boldSpan.textContent = divs;
+
+        contador.appendChild(document.createTextNode("You only have "));
+        contador.appendChild(boldSpan);
+        contador.appendChild(document.createTextNode(" task, keep it up"));
     }
     else{
-        contador.textContent = `Tienes: ${divs} tareas`;
+        const boldSpan = document.createElement('span');
+        boldSpan.id = "numberCount";
+        boldSpan.textContent = divs;
+
+        contador.appendChild(document.createTextNode("You have "));
+        contador.appendChild(boldSpan);
+        contador.appendChild(document.createTextNode(" tasks"));
     }
 }
 

@@ -1,22 +1,78 @@
 .miDiv{
-    background-color: white;
+    background-color: #1D1D1D;
     border-radius: 10px;
     color: black;
     height: auto;
-    display: grid;
-    grid-template-columns: 15% 70% 15%;
-    width: 30em;
-    margin-right: 5%;
+    width: 35em;
+    /* margin-right: 5%; */
     margin-top: 1%;
+
+    /* display: grid;
+    grid-template-columns: 10% 75% 15%; */
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 0.5%;
+
+    color: white;
+
+    border: 0.5px solid #3B3B39;
 }
 
 .miCheckbox{
-    height: 45%;
-    margin-top: 15%;
+    /* margin-top: 25%; */
+
+    appearance: none;
+
+    height: 2em;
+    width: 2em;
+
+    background-color: #1D1D1D;
+    border: 1px solid #FF5432 ;
+    border-radius: 100%;
+}
+
+.miCheckbox:checked{
+    background-color: #5BCB52;
+    border-color: #5BCB52;
 }
 
 .miBoton{
-    background-color: transparent;
-    outline: none;
-    border-width: 0px;
+    background-color: #FF5432;
+    border-width: 0px;  
+    /* padding: 0; */
+    height: 3em;
+    width: 3em;
+    border-radius: 5px;
+    margin-right: 0.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.miP{
+    /* margin-left: 1%; */
+    /* margin-right: 1%; */
+    height: auto;
+    width: 80%;
+}
+
+#imgBasuraAct{
+    height: 80%;
+}
+
+#imgBasuraDsb{
+    height: 75%;
+}
+
+#contadorDivs{
+    color: #6F6F6F;
+    font-size: medium;
+}
+
+#numberCount{
+    color: #BBBBBB;
+    font-weight: bolder;
 }
