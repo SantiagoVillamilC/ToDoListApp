@@ -6,11 +6,13 @@ let divTask = document.querySelector(".all-tasks");
 //validateStorage();
 inputElement.focus();
 
+validateStorage();
+
 function validateStorage(){
     if (typeof(Storage) !== 'undefined') {
-        alert("Compatible");
+        //Comprobacion de la compatibilidad con localStorage
       } else {
-        alert("No compatible");
+        alert("Sorry, your browser does not support the storage function, so it is likely that your information will not be saved or you will experience problems with the app.");
       }
 };
 
