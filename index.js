@@ -130,7 +130,7 @@ function actualizarContadorDivs() {
 
     if (divs === 0){
         contador.textContent = `You don't have any tasks! :D`;
-
+        contador.style.textAlign = "center";
         ocultar();
     }
     else if (divs === 1){
@@ -141,7 +141,7 @@ function actualizarContadorDivs() {
         contador.appendChild(document.createTextNode("You only have "));
         contador.appendChild(boldSpan);
         contador.appendChild(document.createTextNode(" task, keep it up"));
-
+        contador.style.textAlign = "center";
         ocultar();
     }
     else{
@@ -159,9 +159,13 @@ function actualizarContadorDivs() {
 
 function ocultar(){
     document.querySelector(".clear-all-btn").style.display = "none";
+    document.querySelector(".container-Info").style.textAlign = "center";
+    document.querySelector(".container-Info").style.width = "auto";
+    document.querySelector(".container-Info").style.paddingRight = "2%";
 }
 function mostrar(){
     document.querySelector(".clear-all-btn").style.display = "block";
+    document.querySelector(".container-Info").style.width = "15em";
 }
 
 clearBtn.addEventListener("click", function (){
