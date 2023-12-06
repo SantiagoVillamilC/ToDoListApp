@@ -23,14 +23,14 @@
     
     #input-Task{
         height: 3em;
-        width: 20em;
+        width: 90vw;
         padding: 2%;
         margin-bottom: 5%;
     }
 
     .miDiv{
         height: auto;
-        width: 22em;
+        width: 85vw;
         margin-top: 1%;
     }
 
@@ -40,14 +40,15 @@
 
     .container-Info{
         margin-top: 5%;
-        width: 14em;
-        padding: 0.5%;
+        width: 50vw;
+        padding: 1%;
         padding-bottom: 3%;
         flex-direction: column;
+        text-align: center;
     }
 
     .clear-all-btn{
-        width: 35%;
+        width: 50%;
         height: 3em;
     }
   }
