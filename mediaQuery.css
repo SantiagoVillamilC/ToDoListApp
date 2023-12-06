@@ -22,7 +22,7 @@
     }
     
     #input-Task{
-        height: 3em;
+        height: 3.2em;
         width: 90vw;
         padding: 2%;
         margin-bottom: 5%;
@@ -30,7 +30,7 @@
 
     .miDiv{
         height: auto;
-        width: 85vw;
+        width: 90vw;
         margin-top: 1%;
     }
 
@@ -40,7 +40,7 @@
 
     .container-Info{
         margin-top: 5%;
-        width: 50vw;
+        width: 55vw;
         padding: 1%;
         padding-bottom: 3%;
         flex-direction: column;
@@ -50,5 +50,6 @@
     .clear-all-btn{
         width: 50%;
         height: 3em;
+        font-size: medium;
     }
   }

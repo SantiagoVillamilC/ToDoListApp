@@ -128,6 +128,8 @@ function actualizarContadorDivs() {
 
     if (divs === 0){
         contador.textContent = `You don't have any tasks! :D`;
+
+        ocultar();
     }
     else if (divs === 1){
         const boldSpan = document.createElement('span');
@@ -137,6 +139,8 @@ function actualizarContadorDivs() {
         contador.appendChild(document.createTextNode("You only have "));
         contador.appendChild(boldSpan);
         contador.appendChild(document.createTextNode(" task, keep it up"));
+
+        ocultar();
     }
     else{
         const boldSpan = document.createElement('span');
@@ -146,7 +150,16 @@ function actualizarContadorDivs() {
         contador.appendChild(document.createTextNode("You have "));
         contador.appendChild(boldSpan);
         contador.appendChild(document.createTextNode(" tasks"));
+        
+        mostrar();
     }
+}
+
+function ocultar(){
+    document.querySelector(".clear-all-btn").style.display = "none";
+}
+function mostrar(){
+    document.querySelector(".clear-all-btn").style.display = "block";
 }
 
 clearBtn.addEventListener("click", function (){
