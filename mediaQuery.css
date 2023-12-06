@@ -1,0 +1,53 @@
+/* Media query para pantallas más pequeñas, como tablets */
+@media only screen and (max-width: 768px) {
+    #input-Task{
+        height: 3.5em;
+        width: 30em;
+        padding: 2%;
+        margin-right: 2%;
+    }
+  }
+  
+  /* Media query para pantallas pequeñas, como celulares */
+  @media only screen and (max-width: 480px) {
+    header{
+        text-align: center;
+        font-size: small;
+    }
+
+    form{
+        margin-bottom: 1.5em;
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    #input-Task{
+        height: 3em;
+        width: 20em;
+        padding: 2%;
+        margin-bottom: 5%;
+    }
+
+    .miDiv{
+        height: auto;
+        width: 22em;
+        margin-top: 1%;
+    }
+
+    .miCheckbox{
+        margin-right: 3%;
+    }
+
+    .container-Info{
+        margin-top: 5%;
+        width: 14em;
+        padding: 0.5%;
+        padding-bottom: 3%;
+        flex-direction: column;
+    }
+
+    .clear-all-btn{
+        width: 35%;
+        height: 3em;
+    }
+  }
