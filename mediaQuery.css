@@ -10,10 +10,33 @@
   
   /* Media query para pantallas pequeñas, como celulares */
   @media only screen and (max-width: 480px) {
-    header{
+    header {
         text-align: center;
-        font-size: small;
     }
+    .title{
+        font-size: larger;
+    }
+
+    /* h1 {
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(9, 1fr);
+
+        width: 90%;
+    } */
+
+    /* .line-Jump{
+        grid-row: 2;
+        grid-column: 3;
+    }
+    #line-Jump2{
+        grid-row: 2;
+        grid-column: 4;
+    }
+    #line-Jump{
+        grid-row: 2;
+        grid-column: 5;
+    } */
 
     form{
         margin-bottom: 1.5em;
@@ -26,6 +49,9 @@
         width: 90vw;
         padding: 2%;
         margin-bottom: 5%;
+    }
+    span{
+        margin: 0;
     }
 
     .miDiv{
